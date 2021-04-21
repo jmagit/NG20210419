@@ -8,8 +8,6 @@ import { NotificationService } from './common-services';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Hola mundo';
-
   // constructor(private notify: NotificationService) {
   // }
   ngOnInit(): void {
