@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DemosComponent } from '../demos/demos.component';
+import { FormularioComponent } from '../formulario/formulario.component';
 import { HomeComponent } from '../main';
 
 @Component({
@@ -9,6 +10,7 @@ import { HomeComponent } from '../main';
 })
 export class DinamicoComponent implements OnInit {
   menu = [
+    {texto: 'Formulario', componente: FormularioComponent },
     {texto: 'Inicio', componente: HomeComponent },
     {texto: 'Demos', componente: DemosComponent },
   ];

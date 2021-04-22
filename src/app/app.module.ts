@@ -15,13 +15,14 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
 import { DinamicoComponent } from './dinamico/dinamico.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 registerLocaleData(localeEs, 'es', localeEsExtra);
 // ----------------------------------------------------------------------------
 
 @NgModule({
   declarations: [
-    AppComponent, DemosComponent, DinamicoComponent,
+    AppComponent, DemosComponent, DinamicoComponent, FormularioComponent,
   ],
   imports: [
     BrowserModule, FormsModule,
