@@ -16,6 +16,7 @@ import localeEs from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localeEs, 'es', localeEsExtra);
 // ----------------------------------------------------------------------------
@@ -25,7 +26,7 @@ registerLocaleData(localeEs, 'es', localeEsExtra);
     AppComponent, DemosComponent, DinamicoComponent, FormularioComponent,
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonServicesModule, MyCoreModule,
     AppRoutingModule
   ],
