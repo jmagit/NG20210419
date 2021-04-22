@@ -15,7 +15,7 @@ export class ElipsisPipe implements PipeTransform {
 })
 export class CapitalizePipe implements PipeTransform {
   transform(value: any, args?: any): any {
-    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+    return (value??"").length > 1 ? value.charAt(0).toUpperCase() + value.slice(1).toLowerCase() : value;
   }
 }
 

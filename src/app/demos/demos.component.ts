@@ -70,4 +70,12 @@ export class DemosComponent implements OnInit, OnDestroy {
       this.suscriptor.unsubscribe();
     }
   }
+
+  idiomas = [
+    { codigo: 'es', region: 'España' },
+    { codigo: 'pt', region: 'Portuges' },
+    { codigo: 'en-US', region: 'USA' }
+  ];
+  idioma = this.idiomas[0].codigo;
+  internacional = 1500.55;
 }

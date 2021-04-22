@@ -46,3 +46,11 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sunt placeat
 <p  [style.font-size.px]="fontSize">
 {{ listado | json }}
 </p>
+<p>
+  Idioma: <select [(ngModel)]="idioma" >
+    <option *ngFor="let i of idiomas" [value]="i.codigo">{{i.region}}</option>
+  </select>
+  <input type="text" [(ngModel)]="internacional">
+  {{ internacional | number:'1.2-4':idioma }}
+
+</p>
