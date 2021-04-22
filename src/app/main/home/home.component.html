@@ -30,6 +30,10 @@
       </svg>
     </a>
 </div>
+<p>
+  <input type="button" value="Error" (click)="vm.add('Home - Esto es una notificación de error')" >
+  <input type="button" value="Warn" (click)="vm.add('Home - Esta notificación es un aviso', vm.NotificationType.warn)" >
+</p>
 
 <div class="content" role="main">
 
