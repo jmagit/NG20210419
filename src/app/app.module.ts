@@ -4,22 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { ERROR_LEVEL, LoggerService, MyCoreModule } from 'src/my-core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CommonServicesModule } from './common-services';
-import { DemosComponent } from './demos/demos.component';
-import { MainModule } from './main';
-
 // --- Cargar idioma ---------------------------------------------------------
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
-import { DinamicoComponent } from './dinamico/dinamico.component';
-import { FormularioComponent } from './formulario/formulario.component';
-import { HttpClientModule } from '@angular/common/http';
-
 registerLocaleData(localeEs, 'es', localeEsExtra);
 // ----------------------------------------------------------------------------
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CommonServicesModule } from './common-services';
+import { DemosComponent } from './demos/demos.component';
+import { AjaxWaitInterceptor, MainModule } from './main';
+import { DinamicoComponent } from './dinamico/dinamico.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SecurityModule } from './security';
 
 @NgModule({
   declarations: [
@@ -27,14 +27,15 @@ registerLocaleData(localeEs, 'es', localeEsExtra);
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
-    MainModule, CommonServicesModule, MyCoreModule,
+    MainModule, CommonServicesModule, MyCoreModule, SecurityModule,
     AppRoutingModule
   ],
   providers: [
     LoggerService,
     { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
     { provide: LOCALE_ID, useValue: 'es-ES' },
-  ],
+    { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
