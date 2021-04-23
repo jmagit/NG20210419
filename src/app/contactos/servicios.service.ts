@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoggerService } from 'src/my-core';
 import { RESTDAOService } from '../base-code/RESTDAOService.service';
 import { ModoCRUD } from '../base-code/tipos';
@@ -22,10 +23,11 @@ export class ContactosViewModelService {
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
+  protected listURL = '/contacto';
 
   constructor(protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService) { }
+    protected dao: ContactosDAOService, protected router: Router) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
   public get Listado(): Array<any> { return this.listado; }
@@ -76,7 +78,8 @@ export class ContactosViewModelService {
   public cancel(): void {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+    // this.list();
+    this.router.navigateByUrl(this.listURL);
   }
 
   public send(): void {
