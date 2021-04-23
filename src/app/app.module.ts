@@ -21,6 +21,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor, SecurityModule } from './security';
 import { ContactosModule } from './contactos';
+import { PersonasModule } from './personas';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { ContactosModule } from './contactos';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonServicesModule, MyCoreModule, SecurityModule,
-    AppRoutingModule, ContactosModule,
+    AppRoutingModule, ContactosModule, PersonasModule,
   ],
   providers: [
     LoggerService,

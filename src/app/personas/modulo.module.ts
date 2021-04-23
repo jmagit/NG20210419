@@ -4,19 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MyCoreModule } from 'src/my-core';
 import { CommonServicesModule } from '../common-services';
-import { CONTACTOS_COMPONENTES } from './componente.component';
+import { PERSONAS_COMPONENTES } from './componente.component';
 
 
 @NgModule({
   declarations: [
-    CONTACTOS_COMPONENTES
+    PERSONAS_COMPONENTES
   ],
   exports: [
-    CONTACTOS_COMPONENTES
+    PERSONAS_COMPONENTES
   ],
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
     MyCoreModule, CommonServicesModule,
   ]
 })
-export class ContactosModule { }
+export class PersonasModule { }

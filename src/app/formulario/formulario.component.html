@@ -12,9 +12,9 @@
     <br>
     Nombre:
     <input type="url" id="nombre" name="nombre" [(ngModel)]="elemento.nombre" #nombre="ngModel"
-      required minlength="2" maxlength="10" minusculas>
+      required minlength="2" maxlength="10" lowercase>
     <span class="error" [hidden]="!nombre?.errors?.type">{{nombre?.errors?.type}}</span>
-    <span class="error" [hidden]="!nombre?.errors?.minusculas">{{nombre?.errors?.minusculas}}</span>
+    <span class="error" [hidden]="!nombre?.errors?.lowercase">{{nombre?.errors?.minusculas}}</span>
     <span class="error" [hidden]="!nombre?.errors?.required">Es obligatorio</span>
     <span class="error" [hidden]="!nombre?.errors?.minlength && !nombre?.errors?.maxlength">
       Debe tener entre 2 y 10 letras</span>{{nombre?.errors | json}}

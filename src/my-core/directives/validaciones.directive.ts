@@ -2,13 +2,13 @@ import { Directive, ElementRef, forwardRef, Input, OnChanges, SimpleChanges } fr
 import { ValidatorFn, AbstractControl, NG_VALIDATORS, Validator, ValidationErrors, Validators } from '@angular/forms';
 
 @Directive({
-  selector: '[minusculas][formControlName],[minusculas][formControl],[minusculas][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: MinusculasValidatorDirective, multi: true }]
+  selector: '[lowercase][formControlName],[lowercase][formControl],[lowercase][ngModel]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: LowercaseValidatorDirective, multi: true }]
 })
-export class MinusculasValidatorDirective implements Validator {
+export class LowercaseValidatorDirective implements Validator {
   validate(control: AbstractControl): { [key: string]: any } {
     if (!control.value) { return null; }
-    return control.value === control.value.toLowerCase() ? null : { minusculas: 'No esta en minusculas' };
+    return control.value === control.value.toLowerCase() ? null : { lowercase: 'No esta en minusculas' };
   }
 }
 
@@ -132,4 +132,4 @@ export class MaxValidator implements Validator, OnChanges {
   }
 }
 
-export const MIS_VALIDADORES = [ NIFValidatorDirective, TypeValidatorDirective, MinValidator, MaxValidator, MinusculasValidatorDirective ];
+export const MIS_VALIDADORES = [ NIFValidatorDirective, TypeValidatorDirective, MinValidator, MaxValidator, LowercaseValidatorDirective ];
