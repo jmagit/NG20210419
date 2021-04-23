@@ -19,7 +19,8 @@ import { AjaxWaitInterceptor, MainModule } from './main';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SecurityModule } from './security';
+import { AuthInterceptor, SecurityModule } from './security';
+import { ContactosModule } from './contactos';
 
 @NgModule({
   declarations: [
@@ -28,12 +29,13 @@ import { SecurityModule } from './security';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonServicesModule, MyCoreModule, SecurityModule,
-    AppRoutingModule
+    AppRoutingModule, ContactosModule,
   ],
   providers: [
     LoggerService,
     { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
     { provide: LOCALE_ID, useValue: 'es-ES' },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
     { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
 ],
   bootstrap: [AppComponent]
